@@ -7,7 +7,7 @@ def perform_operation(num1, num2, operation):
         return f"{num1 * num2}"
     elif operation == "divide":
         if num2 == 0:
-            return "You cannot divide by zero."
+            return "Undefined - \"You cannot divide by zero.\""
         else:
             return f"{num1 / num2}"
     else:
