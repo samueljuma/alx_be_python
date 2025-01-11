@@ -11,3 +11,6 @@ def perform_operation(num1, num2, operation):
                 return "You cannot divide by zero."
             else:
                 return f"{num1 / num2}"
+              
+        case _:
+            return "Invalid operation"
