@@ -26,7 +26,7 @@ def main():
               print(f'\n"{input_item}" added to the shopping list.\n')
         elif choice == 2:
             # Prompt for and remove an item
-            input_item = input("Enter the item: ").strip().lower()
+            input_item = input("Enter the item to add: ").strip().lower()
             if input_item in shopping_list:
                 shopping_list.remove(input_item)
                 print(f'\n"{input_item}" removed from the shopping list.\n')
