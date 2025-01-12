@@ -10,33 +10,42 @@ def main():
     shopping_list = []
     while True:
         display_menu()
-        choice = input("Enter your choice: ").strip() # Remove leading/trailing whitespace
 
-        if choice == "1":
-            # Prompt for and add an item
-            input_item = input("Enter the item: ").strip()
-            shopping_list.append(input_item)
-            pass
-        elif choice == "2":
+        try:
+            choice = int(input("Enter your choice: ").strip())  # Attempt to convert input to an integer
+        except ValueError:
+            print("\nInvalid input. Only numbers are valid.\n")
+            continue  # Restart the loop
+
+        if choice == 1:
+          input_item = input("Enter the item: ").strip().lower()  
+          if input_item in shopping_list:
+              print(f'\n"{input_item}" is already in the shopping list.\n')
+          else:
+              shopping_list.append(input_item)
+              print(f'\n"{input_item}" added to the shopping list.\n')
+        elif choice == 2:
             # Prompt for and remove an item
-            input_item = input("Enter the item: ").strip().lower()  
+            input_item = input("Enter the item: ").strip().lower()
             if input_item in shopping_list:
                 shopping_list.remove(input_item)
+                print(f'\n"{input_item}" removed from the shopping list.\n')
             else:
-                print("Item not found")
-            pass
-        elif choice == "3":
+                print("\nItem not found in the shopping list.\n")
+        elif choice == 3:
             # Display the shopping list
-            print("\nShopping List:")
-            for item in shopping_list:
-                print(item)
+            if shopping_list:
+                print("\nShopping List:")
+                for item in shopping_list:
+                    print(f"- {item}")
+            else:
+                print("\nThe shopping list is empty.")
             print()
-            pass
-        elif choice == "4":
+        elif choice == 4:
             print("Goodbye!")
             break
         else:
-            print("\nInvalid choice. Please try again.\n")
+            print("\nInvalid choice. Please enter a number between 1 and 4.\n")
 
 
 if __name__ == "__main__":
