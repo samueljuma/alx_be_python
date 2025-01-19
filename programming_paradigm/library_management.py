@@ -31,25 +31,25 @@ class Library:
         for book in self._books:
             if book.title == title:
                 if book.check_out():
-                    # print(f"'{title}' has been checked out.")
-                    return
+                    print(f"'{title}' has been checked out.")
+                    # return
                 else:
-                    # print(f"'{title}' is already checked out.")
-                    return
-                # return
+                    print(f"'{title}' is already checked out.")
+                    # return
+                return
         print(f"'{title}' not found in the library.")
 
     def return_book(self, title):
         for book in self._books:
             if book.title == title:
                 if book.return_book():
-                    # print(f"'{title}' has been returned.")
-                    return
+                    print(f"'{title}' has been returned.")
+                    # return
                 else:
-                    # print(f"'{title}' was not checked out.")
-                    return
-                # return
-        # print(f"'{title}' not found in the library.")
+                    print(f"'{title}' was not checked out.")
+                    # return
+                return
+        print(f"'{title}' not found in the library.")
 
     def list_available_books(self):
         available_books = [book for book in self._books if book.is_available()]
